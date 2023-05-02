@@ -1,0 +1,12 @@
+<div class="container">
+	<div class="row">
+	  <div class="col-md-4" *ngFor="let pokemon of pokemonList">
+	    <div class="card mb-3">
+	      <div class="card-body">
+	        <h5 class="card-title">{{ pokemon.name }}</h5>
+	        <a routerLink="/details/{{ pokemon.name }}" class="btn btn-primary">Details</a>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container">
+	<div class="row">
+	  <div class="col-md-6 offset-md-3">
+	    <div class="card mb-3">
+	      <div class="card-body">
+	        <h5 class="card-title">{{ pokemonDetails.name }} <a routerLink="/" class="btn btn-secondary">Voltar</a></h5>
+	        <ul class="list-group">
+	          <li class="list-group-item"><img src="{{ pokemonDetails.sprites.other['official-artwork'].front_default }}" /></li>
+	          <li class="list-group-item">Height: {{ pokemonDetails.height }}</li>
+	          <li class="list-group-item">Weight: {{ pokemonDetails.weight }}</li>
+	          <li class="list-group-item">Tipo:
+	            <ul>
+	              <li *ngFor="let type of pokemonDetails.types">{{ type.type.name }}</li>
+	            </ul>
+	          </li>
+	          <li class="list-group-item">Abilities:
+	            <ul>
+	              <li *ngFor="let ability of pokemonDetails.abilities">{{ ability.ability.name }}</li>
+	            </ul>
+	          </li>
+	          <li class="list-group-item">Moves:
+	            <ul>
+	            	<li *ngFor="let move of pokemonDetails.moves">{{ move.move.name }}</li>
+	            </ul>
+	          </li>
+	        </ul>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>
