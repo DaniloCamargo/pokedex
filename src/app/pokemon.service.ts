@@ -10,10 +10,22 @@ export class PokemonService {
   constructor(private http: HttpClient) { }
 
   getPokemonList() {
-    return this.http.get(`${this.API_URL}?limit=150`);
+    return this.http.get(`${this.API_URL}?limit=151`);
   }
 
   getPokemonDetails(name: string) {
     return this.http.get(`${this.API_URL}/${name}`);
+  }
+
+  getPokemonNext(flow: number) {
+    return this.http.get(`${this.API_URL}/${flow}`);
+  }
+
+  getPokemonPrev(flow: number) {
+    return this.http.get(`${this.API_URL}/${flow}`);
+  }
+
+  getPokemonDetailsById(flow: number) {
+    return this.http.get(`${this.API_URL}/${flow}`);
   }
 }

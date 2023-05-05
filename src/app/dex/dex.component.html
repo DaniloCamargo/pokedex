@@ -1,12 +1,8 @@
 <div class="container-fluid">
 	<div class="row justify-content-center mt-1">
 		<div class="col-auto">
-			<div class="card border-2 border border-dark rounded-bottom" style="width: 35rem;">
-				<div class="card-header text-bg-dark">
-					<div class="d-flex justify-content-between">
-						<div><strong>{{ pokemonDetails.name }}</strong></div> <div><a routerLink="/" class="btn badge text-bg-primary"><small>Voltar</small></a></div>
-					</div>
-				</div>
+			<div class="card border-2 border border-dark rounded-bottom" style="width: 21rem;">
+				<div class="card-header text-bg-dark"><strong>{{ pokemonDetails.name }}</strong></div>
 			  <img src="{{ pokemonDetails.sprites.other['official-artwork'].front_default }}" class="border-2 border border-dark rounded-bottom" alt="{{ pokemonDetails.name }}">
 			  <div class="card-body">
 			    <!-- <p class="card-text">{{ pokemonDetails.stats }}</p> -->
@@ -32,13 +28,13 @@
 			    	</div>
 			    </div>
 			    <div class="row gx-1 mb-3">
-			    	<div class="col-auto" *ngFor="let moves of pokemonMoves; let i = index">
-			    		<span class="badge text-bg-dark">{{ moves.move.name }}</span>
+			    	<div class="col-auto" *ngFor="let moves of pokemonDetails.moves; let i = index">
+			    		<span class="badge text-bg-dark">{{ moves.move.name }} <span class="badge bg-secondary">{{ moves.version_group_details[0].level_learned_at }}</span></span>
 			    	</div>
 			    </div>
 			    <div class="d-flex justify-content-between">
-				    <a routerLink="/details/{{ pokemonPrev }}" class="badge text-bg-primary fs-4"><i class="bi bi-caret-left-fill"></i></a>
-				    <a routerLink="/details/{{ pokemonNext }}" class="badge text-bg-primary fs-4"><i class="bi bi-caret-right-fill"></i></a>
+				    <a routerLink="/stats/{{ pokemonPrevID }}" class="badge text-bg-primary fs-4"><i class="bi bi-caret-left-fill"></i></a>
+				    <a routerLink="/stats/{{ pokemonNextID }}" class="badge text-bg-primary fs-4"><i class="bi bi-caret-right-fill"></i></a>
 			    </div>
 			  </div>
 			</div>

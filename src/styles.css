@@ -1,1 +1,23 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+.text-bg-grass {
+	color: #fff!important;
+	background-color: #22a512;
+}
+.text-bg-poison {
+	color: #fff!important;
+	background-color: #631e8f;
+}
+.text-bg-fire {
+	color: #fff!important;
+	background-color: #f50e0e;
+}
+.text-bg-flying {
+	color: #fff!important;
+	background-color: #5f52e9;
+}
+.text-bg-normal {
+	color: #000!important;
+	background-color: #d9d9df;
+}
