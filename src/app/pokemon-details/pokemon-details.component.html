@@ -1,13 +1,13 @@
 <div class="container-fluid">
 	<div class="row justify-content-center mt-1">
 		<div class="col-auto">
-			<div class="card border-2 border border-dark rounded-bottom" style="width: 35rem;">
+			<div class="card border-2 border border-dark rounded-bottom" style="max-width: 35rem;">
 				<div class="card-header text-bg-dark">
 					<div class="d-flex justify-content-between">
 						<div><strong>{{ pokemonDetails.name }}</strong></div> <div><a routerLink="/" class="btn badge text-bg-primary"><small>Voltar</small></a></div>
 					</div>
 				</div>
-			  <img src="{{ pokemonDetails.sprites.other['official-artwork'].front_default }}" class="border-2 border border-dark rounded-bottom" alt="{{ pokemonDetails.name }}">
+			  <img src="{{ pokemonImage }}" class="border-2 border border-dark rounded-bottom" alt="{{ pokemonDetails.name }}">
 			  <div class="card-body">
 			    <!-- <p class="card-text">{{ pokemonDetails.stats }}</p> -->
 			    <div class="row mb-1 border-bottom">

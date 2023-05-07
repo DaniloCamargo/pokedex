@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PokemonService {
   private readonly API_URL = 'https://pokeapi.co/api/v2/pokemon';
+  private readonly API_MOVE_URL = 'https://pokeapi.co/api/v2/move';
 
   constructor(private http: HttpClient) { }
 
@@ -15,6 +16,10 @@ export class PokemonService {
 
   getPokemonDetails(name: string) {
     return this.http.get(`${this.API_URL}/${name}`);
+  }
+
+  getPokemonDetailsMoves(flow: string) {
+    return this.http.get(`${flow}`);
   }
 
   getPokemonNext(flow: number) {
