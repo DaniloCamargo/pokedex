@@ -1,9 +1,9 @@
 <div class="container-fluid mb-5">
 	<div class="row justify-content-center mt-1">
 		<div class="col-auto">
-			<div class="card border-2 border border-dark rounded-bottom" style="max-width: 480px;">
-				<div class="card-header text-bg-dark">
-					<div class="d-flex align-items-center justify-content-between">
+			<div class="card border-2 border border-dark rounded-bottom position-relative" style="max-width: 480px;">
+        <div class="card-header text-bg-dark position-relative">
+          <div class="d-flex align-items-center justify-content-between">
             <div>
               <div><strong>{{ pokemonDetails.name }}</strong></div>
               <div class="row gx-1 mb-3">
@@ -15,10 +15,16 @@
             <div>
               #{{ pokemonDetails.order }}
             </div>
-					</div>
-				</div>
-			  <img src="{{ pokemonImage }}" class="border-2 border border-dark rounded-bottom" alt="{{ pokemonDetails.name }}">
-			  <div class="card-body">
+          </div>
+        </div>
+        <div class="position-relative">
+          <div class="d-flex justify-content-between position-absolute w-100 h-100">
+            <div *ngFor="let types of pokemonDetails.types; let isFirst = first; let isLast = last" [ngClass]="{'w-100 rounded': pokemonDetails.types.length === 1, 'w-50': pokemonDetails.types.length > 1, 'rounded-start': pokemonDetails.types.length > 1 && isFirst, 'rounded-end': pokemonDetails.types.length > 1 && isLast}" class="h-100 text-bg-{{ types.type.name }}"></div>
+          </div>
+          <div class="bg-gradient-default position-absolute w-100 h-100"></div>
+          <img src="{{ pokemonImage }}" class="border-2 border border-dark rounded-bottom position-relative bg-gradient-white" alt="{{ pokemonDetails.name }}">
+        </div>
+			  <div class="card-body position-relative">
           <tabset>
             <tab heading="About">
               <!-- <p class="card-text">{{ pokemonDetails.stats }}</p> -->
@@ -45,7 +51,7 @@
               <ul class="mb-1 border-bottom">
                 <li *ngFor="let stats of pokemonDetails.stats">
                   <div class="row">
-                    <div class="col-3"><strong><small>{{ stats.stat.name === 'speed' ? 'Speed' : stats.stat.name === 'hp' ? 'HP' : stats.stat.name === 'defence' ? 'Defence' : stats.stat.name === 'attack' ? 'Attack' : stats.stat.name === 'special-attack' ? 'Sp. Atk' : stats.stat.name === 'special-defense' ? 'Sp. Def' : stats.stat.name }}:</small></strong></div>
+                    <div class="col-3"><strong><small>{{ stats.stat.name === 'speed' ? 'Speed' : stats.stat.name === 'hp' ? 'HP' : stats.stat.name === 'defense' ? 'Defense' : stats.stat.name === 'attack' ? 'Attack' : stats.stat.name === 'special-attack' ? 'Sp. Atk' : stats.stat.name === 'special-defense' ? 'Sp. Def' : stats.stat.name }}:</small></strong></div>
                     <div class="col-2">{{ stats.base_stat }}</div>
                     <div class="col-7"></div>
                   </div>
