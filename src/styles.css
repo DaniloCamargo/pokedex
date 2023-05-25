@@ -1,6 +1,22 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 
+body {
+	height: 100%;
+}
+.backgound {
+	background-image: linear-gradient(to bottom, #5036d4, #4029af, #301d8b, #211268, #120748);
+}
+.bg-gradient-default {
+  background-image: radial-gradient(circle, #000000, #000000ef, #0000007e, #00000050, #00000000);
+  /* background-image: linear-gradient(to right, #78c74e00, #00000042, #000000, #0000003d, #78369600); */
+}
+.card-color {
+	background-image: radial-gradient(circle, #090909, #161126, #201340, #311058, #48006f);
+}
+	.card-color:hover {
+		background-image: linear-gradient(to bottom, #000000, #2a111d, #4a193c, #662464, #783696);
+	}
 .text-bg-grass {
 	color: #fff!important;
 	background-color: #78c74e;
@@ -68,4 +84,13 @@
 .text-bg-steel {
 	color: #fff!important;
 	background-color: #b7b7cf;
+}
+.mt-6 {
+	margin-top: 3.5rem!important;
+}
+.mt-7 {
+	margin-top: 4rem!important;
+}
+.text-decoration-none {
+	text-decoration: none;
 }

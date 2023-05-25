@@ -1,21 +1,26 @@
-<div class="container">
+<div class="container-fluid">
 	<div class="row">
 	  <div class="col-md-4" *ngFor="let pokemon of pokemonList; let i = index">
-	  	<div class="card border-2 border border-dark mb-3" style="max-width: 540px;">
-			  <div class="row g-0">
+	  	<a routerLink="/details/{{ pokemon.name }}" class="card border-2 border border-dark mb-3 text-decoration-none card-color" style="max-width: 540px;">
+        <div class="d-flex justify-content-between position-absolute w-100 h-100">
+          <div *ngFor="let types of pokemon.types" [ngClass]="{'w-100': pokemon.types.length === 1, 'w-50': pokemon.types.length > 1}" class="h-100 text-bg-{{ types.type.name }}"></div>
+        </div>
+        <div class="bg-gradient-default position-absolute w-100 h-100"></div>
+			  <div class="row g-0 position-relative">
 			    <div class="col-md-4">
 			      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{ i + 1 }}.png" class="img-fluid rounded-start" alt="{{ pokemon.name }}">
 			    </div>
 			    <div class="col-md-8">
 			      <div class="card-body">
-			      	<div class="d-flex justify-content-between align-items-center h-100">
-			      		<div><h5 class="card-title">{{ pokemon.name }}</h5></div>
-			      		<div><a routerLink="/details/{{ pokemon.name }}" class="btn btn-primary"><i class="bi bi-eye"></i></a></div>
-							<div>
+		      		<div><h5 class="card-title text-white">nº {{ i + 1 }} - {{ pokemon.name }}</h5></div>
+		      		<div class="d-flex justify-content-start align-items-center mb-2">
+				    		<span *ngFor="let types of pokemon.types" class="me-1 badge text-bg-{{ types.type.name }}">{{ types.type.name }}</span>
+				    	</div>
+				    	<p class="text-white">{{ pokemon.description }}</p>
 			      </div>
 			    </div>
 			  </div>
-			</div>
+			</a>
 	  </div>
 	</div>
 </div>
