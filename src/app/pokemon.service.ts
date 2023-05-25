@@ -8,6 +8,7 @@ export class PokemonService {
   private readonly API_URL = 'https://pokeapi.co/api/v2/pokemon';
   private readonly API_MOVE_URL = 'https://pokeapi.co/api/v2/move';
   private readonly API_SPECIES_URL = 'https://pokeapi.co/api/v2/pokemon-species';
+  private readonly API_EGG_GROUP_URL = 'https://pokeapi.co/api/v2/egg-group';
 
   constructor(private http: HttpClient) { }
 
@@ -25,6 +26,10 @@ export class PokemonService {
 
   getPokemonDetailsSpecies(flow: string) {
     return this.http.get(`${this.API_SPECIES_URL}/${flow}`);
+  }
+
+  getPokemonEggGroup(flow: string) {
+    return this.http.get(`${this.API_EGG_GROUP_URL}/${flow}`);
   }
 
   getPokemonNext(flow: number) {

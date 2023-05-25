@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
 import { DexComponent } from './dex/dex.component';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 const routes: Routes = [
   { path: '', component: PokemonListComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    TabsModule.forRoot(),
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
