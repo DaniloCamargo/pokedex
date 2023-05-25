@@ -12,7 +12,7 @@ export class PokemonService {
   constructor(private http: HttpClient) { }
 
   getPokemonList() {
-    return this.http.get(`${this.API_URL}?limit=20`);
+    return this.http.get(`${this.API_URL}?limit=151`);
   }
 
   getPokemonDetails(flow: string) {

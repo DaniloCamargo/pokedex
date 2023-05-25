@@ -3,7 +3,7 @@
 	  <div class="col-md-4" *ngFor="let pokemon of pokemonList; let i = index">
 	  	<a routerLink="/details/{{ pokemon.name }}" class="card border-2 border border-dark mb-3 text-decoration-none card-color" style="max-width: 540px;">
         <div class="d-flex justify-content-between position-absolute w-100 h-100">
-          <div *ngFor="let types of pokemon.types" [ngClass]="{'w-100': pokemon.types.length === 1, 'w-50': pokemon.types.length > 1}" class="h-100 text-bg-{{ types.type.name }}"></div>
+          <div *ngFor="let types of pokemon.types; let isFirst = first; let isLast = last" [ngClass]="{'w-100 rounded': pokemon.types.length === 1, 'w-50': pokemon.types.length > 1, 'rounded-start': pokemon.types.length > 1 && isFirst, 'rounded-end': pokemon.types.length > 1 && isLast}" class="h-100 text-bg-{{ types.type.name }}"></div>
         </div>
         <div class="bg-gradient-default position-absolute w-100 h-100"></div>
 			  <div class="row g-0 position-relative">

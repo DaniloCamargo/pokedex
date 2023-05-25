@@ -8,8 +8,8 @@ body {
 	background-image: linear-gradient(to bottom, #5036d4, #4029af, #301d8b, #211268, #120748);
 }
 .bg-gradient-default {
-  background-image: radial-gradient(circle, #000000, #000000ef, #0000007e, #00000050, #00000000);
-  /* background-image: linear-gradient(to right, #78c74e00, #00000042, #000000, #0000003d, #78369600); */
+  /* background-image: radial-gradient(circle, #000000, #000000ef, #0000007e, #00000050, #00000000); */
+  background-image: linear-gradient(to right, #78c74e00, #00000042, #000000, #0000003d, #78369600);
 }
 .card-color {
 	background-image: radial-gradient(circle, #090909, #161126, #201340, #311058, #48006f);
