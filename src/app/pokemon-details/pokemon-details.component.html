@@ -30,50 +30,67 @@
               <!-- <p class="card-text">{{ pokemonDetails.stats }}</p> -->
               <div class="row">
                 <div class="col-12 mb-3">
-                  <ul>
+                  <ul class="mt-2 ps-3 pt-2 pb-2 mb-2 border-top border-bottom">
                     <li>
-                      <strong class="me-2"><small>Species:</small></strong> <span>{{ pokemonDetails.species.name }}</span>
+                      <span class="title"><strong class="me-2"><small>Species:</small></strong></span> <span>{{ pokemonDetails.name }}</span>
                     </li>
                     <li>
-                      <strong class="me-2"><small>Height:</small></strong> {{ pokemonDetails.height }}
+                      <span class="title"><strong class="me-2"><small>Height:</small></strong></span> {{ pokemonDetails.height }}
                     </li>
                     <li>
-                      <strong class="me-2"><small>Weight:</small></strong> {{ pokemonDetails.weight }}
+                      <span class="title"><strong class="me-2"><small>Weight:</small></strong></span> {{ pokemonDetails.weight }}
                     </li>
                     <li>
-                      <strong class="me-2"><small>Abilities:</small></strong> <span class="me-3" *ngFor="let abilities of pokemonDetails.abilities">{{ abilities.ability.name }}</span>
+                      <span class="title"><strong class="me-2"><small>Abilities:</small></strong></span> <span class="me-3" *ngFor="let abilities of pokemonDetails.abilities">{{ abilities.ability.name }}</span>
                     </li>
                   </ul>
                 </div>
               </div>
             </tab>
             <tab heading="Base Stats">
-              <ul class="mb-1 border-bottom">
+              <ul class="mt-2 ps-3 pt-2 pb-2 mb-2 border-top border-bottom lista">
                 <li *ngFor="let stats of pokemonDetails.stats">
                   <div class="row">
-                    <div class="col-3"><strong><small>{{ stats.stat.name === 'speed' ? 'Speed' : stats.stat.name === 'hp' ? 'HP' : stats.stat.name === 'defense' ? 'Defense' : stats.stat.name === 'attack' ? 'Attack' : stats.stat.name === 'special-attack' ? 'Sp. Atk' : stats.stat.name === 'special-defense' ? 'Sp. Def' : stats.stat.name }}:</small></strong></div>
-                    <div class="col-2">{{ stats.base_stat }}</div>
-                    <div class="col-7"></div>
+                    <div class="col-4"><span class="title"><strong><small>{{ stats.stat.name === 'speed' ? 'Speed' : stats.stat.name === 'hp' ? 'HP' : stats.stat.name === 'defense' ? 'Defense' : stats.stat.name === 'attack' ? 'Attack' : stats.stat.name === 'special-attack' ? 'Sp. Atk' : stats.stat.name === 'special-defense' ? 'Sp. Def' : stats.stat.name }}:</small></strong></span></div>
+                    <div class="col-8">{{ stats.base_stat }}</div>
                   </div>
                 </li>
               </ul>
             </tab>
-            <tab heading="Evolution">(em andamento)</tab>
+            <tab heading="Evolution">
+              <div class="mt-2 ps-3 pt-2 pb-2 mb-2 border-top border-bottom lista">
+                (em andamento)
+              </div>
+            </tab>
             <tab heading="Moves">
-              <div class="row gx-1 mb-3">
-                <div class="col-auto" *ngFor="let moves of pokemonMoves; let i = index">
-                  <span class="badge text-bg-dark">{{ moves.move.name }}</span>
+              <div class="mt-2 pt-2 pb-2 mb-2 border-top border-bottom">
+                <div class="row gx-3">
+                  <div class="col-6" *ngFor="let moves of pokemonMoves;let isFirst = first;let i = index" [ngClass]="{'mb-3': i === 1 || isFirst}">
+                    <div class="card border-{{ moves.type.name }}">
+                      <div class="card-header-{{ moves.type.name }}">
+                        <h5 class="card-title ms-2 my-1">{{ moves.name }}</h5>
+                      </div>
+                      <div class="card-body px-1 py-1">
+                        <ul class="lista mb-0">
+                          <li><span class="title"><strong class="me-1"><small>Type:</small></strong></span> <small>{{ moves.type.name }}</small></li>
+                          <li><span class="title"><strong class="me-1"><small>PP:</small></strong></span> <small>{{ moves.pp }}</small></li>
+                          <li><span class="title"><strong class="me-1"><small>Power:</small></strong></span> <small>{{ moves.power === null ? 'null' : moves.power }}</small></li>
+                          <li><span class="title"><strong class="me-1"><small>Acc:</small></strong></span> <small>{{ moves.accuracy === null ? 'null' : moves.accuracy }}</small></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </tab>
           </tabset>
-			    <div class="d-flex justify-content-between">
-				    <a routerLink="/details/{{ pokemonPrev }}" class="badge text-bg-primary fs-4"><i class="bi bi-caret-left-fill"></i></a>
-				    <a routerLink="/details/{{ pokemonNext }}" class="badge text-bg-primary fs-4"><i class="bi bi-caret-right-fill"></i></a>
-			    </div>
 			  </div>
+        <a routerLink="/details/{{ pokemonPrev }}" class="badge text-bg-dark fs-4 position-absolute top-50 end-90 translate-middle"><i class="bi bi-caret-left-fill"></i></a>
+        <a routerLink="/details/{{ pokemonNext }}" class="badge text-bg-dark fs-4 position-absolute top-50 start-100 translate-middle"><i class="bi bi-caret-right-fill"></i></a>
 			</div>
 		</div>
 	</div>
+  <div class="position-fixed">
+    <div><a routerLink="/" class="btn badge text-bg-primary"><small>Voltar</small></a></div>
+  </div>
 </div>
-<div><a routerLink="/" class="btn badge text-bg-primary"><small>Voltar</small></a></div>

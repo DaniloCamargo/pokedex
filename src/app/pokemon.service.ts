@@ -21,7 +21,7 @@ export class PokemonService {
   }
 
   getPokemonDetailsMoves(flow: string) {
-    return this.http.get(`${flow}`);
+    return this.http.get(`${this.API_MOVE_URL}/${flow}`);
   }
 
   getPokemonDetailsSpecies(flow: string) {

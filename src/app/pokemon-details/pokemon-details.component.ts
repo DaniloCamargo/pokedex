@@ -12,13 +12,15 @@ export class PokemonDetailsComponent implements OnInit {
   pokemonImage: string = '';
   pokemonDetails: any = {};
   pokemonMoves: any = {};
-  maxMoves: number = 8;
+  maxMoves: number = 4;
   pokemonNext: number = 1;
   pokemonPrev: number = 2;
+  segundoEl: any;
 
   constructor(private route: ActivatedRoute, private pokemonService: PokemonService) { }
 
   ngOnInit() {
+    this.segundoEl = this.pokemonMoves.length + 2;
     this.route.params.subscribe(params => {
       this.pokemonName = params['name'];
       this.pokemonService.getPokemonDetails(this.pokemonName).subscribe((response: any) => {
@@ -35,18 +37,18 @@ export class PokemonDetailsComponent implements OnInit {
         });
 
         this.pokemonService.getPokemonEggGroup(response.id).subscribe((response: any) => {
-          console.log(response);
           this.pokemonDetails.egg_group = response;
         });
 
         this.pokemonMoves = [];
         for (let i = 0; i < this.maxMoves; i++) {
-          const randomIndex = Math.floor(Math.random() * response.moves.length);
-          this.pokemonMoves.push(response.moves[randomIndex]);
-          response.moves.splice(randomIndex, 1);
+          var randomIndex = Math.floor(Math.random() * response.moves.length);
+          var el = response.moves[randomIndex].move.url.split('/')[response.moves[randomIndex].move.url.split('/').length - 2];
+          this.pokemonService.getPokemonDetailsMoves(el).subscribe((response: any) => {
+            this.pokemonMoves.push(response);
+            response.moves.splice(randomIndex, 1);
+          });
         }
-        console.log(this.pokemonDetails);
-        console.log(this.pokemonMoves);
       });
     });
   }
